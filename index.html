@@ -1,0 +1,392 @@
+<div class="app">
+
+  <header class="topbar">
+    <div>
+      <h1>🛒 Smart Shop</h1>
+      <p>Professional Shop Manager</p>
+    </div>
+    <div class="status">● ONLINE</div>
+  </header>
+
+  <nav class="menu">
+    <button id="dashboardBtn">📊 Dashboard</button>
+    <button id="saleBtn">🛍️ New Sale</button>
+    <button id="inventoryBtn">📦 Inventory</button>
+    <button id="addBtn">➕ Add Product</button>
+    <button id="historyBtn">🧾 Sales History</button>
+  </nav>
+
+
+  <!-- DASHBOARD -->
+
+  <section id="dashboardPage" class="page">
+
+    <h2>📊 Dashboard</h2>
+
+    <div class="stats">
+
+      <div class="stat-card">
+        <span>Total Revenue</span>
+        <strong>
+          GH₵ <b id="totalRevenue">0.00</b>
+        </strong>
+      </div>
+
+      <div class="stat-card profit-card">
+        <span>Total Profit</span>
+        <strong>
+          GH₵ <b id="totalProfit">0.00</b>
+        </strong>
+      </div>
+
+      <div class="stat-card">
+        <span>Transactions</span>
+        <strong id="transactionCount">0</strong>
+      </div>
+
+      <div class="stat-card">
+        <span>Products</span>
+        <strong id="productCount">0</strong>
+      </div>
+
+      <div class="stat-card warning-card">
+        <span>Low Stock</span>
+        <strong id="lowStockCount">0</strong>
+      </div>
+
+    </div>
+
+
+    <div class="panel">
+
+      <h3>💰 Business Summary</h3>
+
+      <div class="summary-row">
+        <span>Revenue</span>
+        <strong>
+          GH₵ <span id="summaryRevenue">0.00</span>
+        </strong>
+      </div>
+
+      <div class="summary-row">
+        <span>Cost</span>
+        <strong>
+          GH₵ <span id="summaryCost">0.00</span>
+        </strong>
+      </div>
+
+      <div class="summary-row profit-row">
+        <span>Profit</span>
+        <strong>
+          GH₵ <span id="summaryProfit">0.00</span>
+        </strong>
+      </div>
+
+    </div>
+
+
+    <div class="panel">
+
+      <h3>⚠️ Stock Alerts</h3>
+
+      <div id="stockAlerts"></div>
+
+    </div>
+
+
+    <div class="panel">
+
+      <h3>🕒 Recent Sales</h3>
+
+      <div id="recentSales"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- NEW SALE -->
+
+  <section id="salePage" class="page hidden">
+
+    <h2>🛍️ New Sale</h2>
+
+    <div class="search-box">
+      🔎
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="Search products..."
+      >
+    </div>
+
+    <div
+      id="products"
+      class="products-grid">
+    </div>
+
+
+    <div class="sale-panel">
+
+      <h3>🛒 Cart</h3>
+
+      <div id="cart"></div>
+
+
+      <div class="cart-total">
+
+        <span>Total</span>
+
+        <strong>
+          GH₵
+          <span id="saleTotal">0.00</span>
+        </strong>
+
+      </div>
+
+
+      <!-- PAYMENT METHOD -->
+
+      <label>
+        💳 Payment Method
+      </label>
+
+      <select id="paymentMethod">
+
+        <option value="Cash">
+          💵 Cash
+        </option>
+
+        <option value="MoMo">
+          📱 MoMo
+        </option>
+
+        <option value="Card">
+          💳 Card
+        </option>
+
+      </select>
+
+
+      <!-- CASH -->
+
+      <div id="cashSection">
+
+        <label>
+          Cash Received
+        </label>
+
+        <input
+          id="cashInput"
+          type="number"
+          step="0.01"
+          placeholder="Cash received"
+        >
+
+        <div class="change-box">
+
+          <span>Change</span>
+
+          <strong>
+            GH₵
+            <span id="changeAmount">
+              0.00
+            </span>
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <button
+        id="completeSaleBtn"
+        class="primary-btn">
+
+        ✅ Complete Sale
+
+      </button>
+
+
+      <p id="saleMessage"></p>
+
+    </div>
+
+  </section>
+
+
+  <!-- INVENTORY -->
+
+  <section
+    id="inventoryPage"
+    class="page hidden">
+
+    <h2>📦 Inventory</h2>
+
+    <div class="search-box">
+
+      🔎
+
+      <input
+        id="inventorySearch"
+        type="text"
+        placeholder="Search inventory..."
+      >
+
+    </div>
+
+    <div id="inventoryList"></div>
+
+  </section>
+
+
+  <!-- ADD PRODUCT -->
+
+  <section
+    id="addPage"
+    class="page hidden">
+
+    <h2>➕ Add Product</h2>
+
+    <div class="form-panel">
+
+      <label>
+        Product Name
+      </label>
+
+      <input
+        id="productName"
+        type="text"
+        placeholder="e.g. Milo"
+      >
+
+
+      <label>
+        Category
+      </label>
+
+      <select id="productCategory">
+
+        <option value="Food">Food</option>
+        <option value="Drink">Drink</option>
+        <option value="Household">Household</option>
+        <option value="Personal Care">Personal Care</option>
+        <option value="Other">Other</option>
+
+      </select>
+
+
+      <label>
+        Cost Price
+      </label>
+
+      <input
+        id="productCost"
+        type="number"
+        step="0.01"
+        placeholder="Buying price"
+      >
+
+
+      <label>
+        Selling Price
+      </label>
+
+      <input
+        id="productPrice"
+        type="number"
+        step="0.01"
+        placeholder="Selling price"
+      >
+
+
+      <label>
+        Starting Stock
+      </label>
+
+      <input
+        id="productStock"
+        type="number"
+        placeholder="Starting stock"
+      >
+
+
+      <button
+        id="saveProductBtn"
+        class="primary-btn">
+
+        ➕ Add Product
+
+      </button>
+
+      <p id="productMessage"></p>
+
+    </div>
+
+  </section>
+
+
+  <!-- SALES HISTORY -->
+
+  <section
+    id="historyPage"
+    class="page hidden">
+
+    <h2>🧾 Sales History</h2>
+
+    <button
+      id="clearSalesBtn"
+      class="danger-btn">
+
+      🗑️ Clear Sales History
+
+    </button>
+
+    <div id="historyList"></div>
+
+  </section>
+
+
+  <!-- RECEIPT -->
+
+  <div
+    id="receiptModal"
+    class="modal hidden">
+
+    <div class="receipt">
+
+      <button
+        id="closeReceiptBtn"
+        class="close-btn">
+
+        ✕
+
+      </button>
+
+      <div id="receiptContent"></div>
+
+      <button
+        id="printReceiptBtn"
+        class="primary-btn">
+
+        🖨️ Print Receipt
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div><!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pen</title>
+  </head>
+  <body>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
