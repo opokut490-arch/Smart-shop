@@ -1,0 +1,10 @@
+{
+  "name": "Smart Shop",
+  "short_name": "Smart Shop",
+  "description": "Professional Provision Shop Manager",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#eef1f5",
+  "theme_color": "#111827",
+  "orientation": "portrait"
+}
